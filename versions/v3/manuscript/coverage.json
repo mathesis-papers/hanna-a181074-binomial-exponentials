@@ -1,0 +1,167 @@
+{
+  "posing_source": {
+    "author": "Paul D. Hanna",
+    "url": "https://oeis.org/A181074",
+    "locator": "Name and Comments; conjecture dated 2 October 2010; entry revision 9 dated 3 August 2024",
+    "statement": "Conjecture: this sequence consists entirely of integers."
+  },
+  "scientific_coverage": {
+    "written_proofs": [
+      "Theorem 1 for arbitrary U in 1+t Z[[t]] and the three stated affine exponent families",
+      "Reflected-polynomial extension for c(n,k)=[t^k]P(t)^n, deg(P)<=d and exponent r(dn-k)+s, r,s>=1",
+      "A181074",
+      "A181070",
+      "A181076",
+      "A181078",
+      "A181080",
+      "A181082",
+      "A181084",
+      "A166894",
+      "A181071",
+      "A181075",
+      "A181077",
+      "A181079",
+      "A181081",
+      "A181083",
+      "A181085",
+      "A166895 integrality, Dold congruences and Kotesovec's 20 November 2024 limit formula",
+      "Kotesovec's A209428 limit formula (6 March 2014); uniqueness of the A323777 defining root in (0,1/2), not posed as a conjecture",
+      "Bivariate integer monomial Euler-product corollary for powered arrays satisfying the stated congruences",
+      "A209424, A228899, A209196 and A228904 triangle integrality",
+      "A167007 and A184730 row sums, A209425 column and A209426 central terms",
+      "A209427 and A219207 coefficient-array congruences; A219207 Comments maximal-position limit (Kotesovec, 15 November 2012)"
+    ],
+    "lean_source_statements": [
+      {
+        "sequence": "A181074",
+        "declaration": "D5.S1.Recurrence.Algebraic.HannaA181074Integrality.result",
+        "scope": "All coefficients of the defining formal exponential lie in the image of the integers in the rationals."
+      },
+      {
+        "sequence": "A181070",
+        "declaration": "D5.S1.Recurrence.Algebraic.HannaA181070Integrality.result",
+        "scope": "All coefficients of the defining formal exponential lie in the image of the integers in the rationals."
+      },
+      {
+        "sequence": "A181080",
+        "declaration": "D5.S1.Recurrence.Algebraic.HannaA181080Integrality.result",
+        "scope": "All coefficients of the defining formal exponential lie in the image of the integers in the rationals."
+      }
+    ],
+    "finite_checks": "A181074 through degree 75, other seven exponentials through degree 40, two additional U examples through degree 30, nine reflected-polynomial examples through degree 24, and 495 exact binomial probability bounds; local ranges and counts are in checks.json. Four bivariate triangles through row 12, two row-sum sequences, a column and a central subsequence are checked by exact recurrence and an independent monomial Euler product.",
+    "counterexamples": "The lowered exponents in the Comments of A181074, A181070 and A181080 give degree-six coefficients 1481/2, 45/2 and 327/2, respectively. These confirm the source's asserted nonintegrality; integrality for them is not asserted in the source. A228899 and A184730 Comments assert nonintegrality of the lowered power k; coefficients [x^4 y^2]=31/2 and [x^4] at y=1 equal 85/2 confirm those statements.",
+    "not_covered": [
+      "A181072: its displayed definition and formulas count bounded-step random walks.",
+      "A181073: its Name and Comments concern digit permutations, not binomial exponentials."
+    ]
+  },
+  "source_details": [
+    {
+      "sequence": "A181075",
+      "locator": "Crossrefs",
+      "statement": "The defining logarithmic sum corresponds to A181074, not the cross-referenced A181076."
+    },
+    {
+      "sequence": "A181079",
+      "locator": "Formula",
+      "statement": "The defining logarithmic sum corresponds to A181078, not A181076."
+    },
+    {
+      "sequence": "A181081",
+      "locator": "Name",
+      "statement": "Differentiation of A181080 gives the exponent m-2k+1."
+    },
+    {
+      "sequence": "A209428",
+      "locator": "Formula, V. Kotesovec, 6 March 2014",
+      "statement": "The unweighted sum and the A166895 weighted sum have the same stated limit."
+    }
+  ],
+  "prior_proofs": [
+    {
+      "status": "Reproved; prior proof Moree (2003)",
+      "locator": "The formal series Witt transform, Theorem 4(2), arXiv v1 12 November 2003; inspected v2 31 March 2005",
+      "source_url": "https://arxiv.org/abs/math/0311194v2",
+      "scope": "Integer Witt transforms, implying the unpowered coefficient congruences; not the index-dependent-power theorem."
+    },
+    {
+      "status": "Reproved; prior proof Du, Huang and Li (2005)",
+      "locator": "Newton, Fermat, and Exactly Realizable Sequences, Theorem 2(2)-(3)",
+      "source_url": "https://cs.uwaterloo.ca/journals/JIS/VOL8/Huang/huang11.pdf",
+      "scope": "One-variable exponential/Euler-product equivalence, with sign change and inversion matching the positive-exponential convention."
+    },
+    {
+      "status": "Prior proof cited; Byszewski, Graff and Ward (2021)",
+      "locator": "Dold sequences, periodic points, and dynamics, Theorem 2.5 and Lemma 2.6",
+      "source_url": "https://arxiv.org/abs/2007.04031v4",
+      "scope": "Later Dold formulation of the criterion."
+    },
+    {
+      "status": "Reproved; prior proof Gossow (2024)",
+      "locator": "Polynomial and combinatorial analogues of Gauss congruence, v2, Theorem 3.3, equation (3.1), Example 3.4",
+      "source_url": "https://arxiv.org/abs/2410.05678v2",
+      "scope": "Ranked-semigroup Gauss criterion and unpowered coefficient arrays; bivariate criterion reproved, powered-array and scaled-binomial applications supplied as written proofs."
+    }
+  ],
+  "bivariate_source_items": [
+    {
+      "sequence": "A209424",
+      "locator": "Name",
+      "status": "Proved: stated integer triangle",
+      "proof": "Bivariate Euler-product corollary"
+    },
+    {
+      "sequence": "A228899",
+      "locator": "Name",
+      "status": "Proved: stated integer triangle",
+      "proof": "Bivariate Euler-product corollary"
+    },
+    {
+      "sequence": "A209196",
+      "locator": "Name",
+      "status": "Proved: stated integer triangle",
+      "proof": "Bivariate Euler-product corollary"
+    },
+    {
+      "sequence": "A228904",
+      "locator": "Name",
+      "status": "Proved: stated integer triangle",
+      "proof": "Bivariate Euler-product corollary"
+    },
+    {
+      "sequence": "A167007",
+      "locator": "Name",
+      "status": "Proved: integral specialization",
+      "proof": "Row, column and central-subsequence corollary"
+    },
+    {
+      "sequence": "A184730",
+      "locator": "Name",
+      "status": "Proved: integral specialization",
+      "proof": "Row, column and central-subsequence corollary"
+    },
+    {
+      "sequence": "A209425",
+      "locator": "Name",
+      "status": "Proved: integral specialization",
+      "proof": "Row, column and central-subsequence corollary"
+    },
+    {
+      "sequence": "A209426",
+      "locator": "Name",
+      "status": "Proved: integral specialization",
+      "proof": "Row, column and central-subsequence corollary"
+    },
+    {
+      "sequence": "A219207",
+      "locator": "Comments, Kotesovec, 15 November 2012",
+      "status": "Proved: stated asymptotic maximizing position",
+      "proof": "Coefficient-array corollary"
+    },
+    {
+      "sequence": "A060946",
+      "locator": "Formula, sum_{j=1}^n j^(j-1)",
+      "status": "Prior formula cited; integrality immediate"
+    }
+  ]
+}

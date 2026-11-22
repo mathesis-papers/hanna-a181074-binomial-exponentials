@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 127723,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "f2988362a32f8841448db08df08372d987e12578fca5f82a87b09202cae2033c",
+      "sha256": "f2988362a32f8841448db08df08372d987e12578fca5f82a87b09202cae2033c"
+    },
+    "source": {
+      "bytes": 39614,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "ac3e30db988f036c39673bfcd013ea0a79ede0d934880461f67542b71888aded",
+      "sha256": "ac3e30db988f036c39673bfcd013ea0a79ede0d934880461f67542b71888aded"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "Extending coefficient congruences of Moree (2003) and Gossow (2024), we prove Paul D. Hanna's conjecture in the Comments of OEIS A181074 (2 October 2010) that exp(sum_{n>=1,k>=0} binomial(n+k-1,k)^(k+1) x^(n+k)/n) has integer coefficients. The general affine-power and reflected-polynomial theorems prove six companion integrality conjectures. A bivariate Euler product treats A209424, A228899, A209196 and A228904, including row sums A167007 and A184730. Written proofs also give logarithmic Dold congruences and Kotesovec's limits in A209428 and A166895. Exact rational coefficients confirm the sources' lowered-power nonintegrality assertions. The exponential/Euler-product criterion is credited to Du, Huang and Li (2005), and its Dold formulation to Byszewski, Graff and Ward (2021).",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 3,
+    "doi": null,
+    "lean_source": {
+      "revision": "abb48f723fe221da235c625800ba0d2ca1755296",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/abb48f723fe221da235c625800ba0d2ca1755296/D5/S1/Recurrence/Algebraic/HannaA181074Integrality.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 127723,
+      "sha256": "f2988362a32f8841448db08df08372d987e12578fca5f82a87b09202cae2033c",
+      "url": "/api/v1/collected-papers/hanna-a181074-binomial-exponentials/files/pdf?version=3"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-22T15:44:15.786410175Z",
+    "record": "hanna-a181074-binomial-exponentials",
+    "repository_name": "hanna-a181074-binomial-exponentials",
+    "source": {
+      "bytes": 39614,
+      "sha256": "ac3e30db988f036c39673bfcd013ea0a79ede0d934880461f67542b71888aded",
+      "url": "/api/v1/collected-papers/hanna-a181074-binomial-exponentials/files/source?version=3"
+    },
+    "title": "Proving Hanna's conjecture in OEIS A181074, Comments (2 October 2010): extensions of Moree (2003) and Gossow (2024)",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-22T15:44:15.786410175Z",
+        "revision": "3",
+        "version": 3
+      }
+    ],
+    "work": "hanna-a181074-binomial-exponentials"
+  }
+}

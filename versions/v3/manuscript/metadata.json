@@ -1,0 +1,25 @@
+{
+  "id": "hanna-a181074-binomial-exponentials",
+  "revision": 3,
+  "problem_ids": [
+    "hanna181074",
+    "hanna181070",
+    "hanna181080"
+  ],
+  "topic": "Hanna's coefficient-integrality conjecture in OEIS A181074, Comments, and binomial-exponential variants",
+  "title": "Proving Hanna's conjecture in OEIS A181074, Comments (2 October 2010): extensions of Moree (2003) and Gossow (2024)",
+  "creators": [
+    {
+      "name": "Ma, Haobo",
+      "affiliation": "ChronoAI Pte Ltd, Singapore"
+    },
+    {
+      "name": "Zhang, Wenlin",
+      "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"
+    }
+  ],
+  "abstract": "Extending coefficient congruences of Moree (2003) and Gossow (2024), we prove Paul D. Hanna's conjecture in the Comments of OEIS A181074 (2 October 2010) that exp(sum_{n>=1,k>=0} binomial(n+k-1,k)^(k+1) x^(n+k)/n) has integer coefficients. The general affine-power and reflected-polynomial theorems prove six companion integrality conjectures. A bivariate Euler product treats A209424, A228899, A209196 and A228904, including row sums A167007 and A184730. Written proofs also give logarithmic Dold congruences and Kotesovec's limits in A209428 and A166895. Exact rational coefficients confirm the sources' lowered-power nonintegrality assertions. The exponential/Euler-product criterion is credited to Du, Huang and Li (2005), and its Dold formulation to Byszewski, Graff and Ward (2021).",
+  "summary": "An extension of prior coefficient congruences proves Hanna's A181074 and six companion conjectures, bivariate triangle integrality, logarithmic congruences and stated companion limits, with exact checks and three sequence-specific Lean source declarations.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/abb48f723fe221da235c625800ba0d2ca1755296/D5/S1/Recurrence/Algebraic/HannaA181074Integrality.lean"
+}

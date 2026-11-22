@@ -1,0 +1,711 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable,microtype}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\DeclareMathOperator{\lcm}{lcm}
+\title{Proving Hanna's conjecture in OEIS A181074, Comments (2 October 2010): extensions of Moree (2003) and Gossow (2024)}
+\author{Haobo Ma\\{\small ChronoAI Pte Ltd, Singapore}\\[0.7em]
+Wenlin Zhang\\{\small National University of Singapore}\\{\small ChronoAI Pte Ltd, Singapore}}
+\date{8 November 2026\\[0.5em]{\small Creative Commons Attribution 4.0 International (CC BY 4.0)}}
+\begin{document}
+\maketitle
+\begin{abstract}
+Extending coefficient congruences of Moree (2003) and Gossow (2024),
+we prove Paul D. Hanna's conjecture in the Comments of OEIS A181074
+(entry dated 2 October 2010) that the coefficients of
+\(\exp(\sum_{n\ge1,k\ge0}\binom{n+k-1}{k}^{k+1}x^{n+k}/n)\)
+are integers \cite{moree,gossow,h74}. The proof lifts a coefficient congruence modulo a prime to
+prime powers and applies the Euler-product criterion for integral formal
+exponentials. The same argument proves the integrality conjectures in
+A181070, A181076, A181078, A181080, A181082 and A181084, and gives an integral-series
+theorem for the coefficients of powers of any series in \(1+t\mathbb Z[[t]]\).
+The reflected exponent also extends to every integer polynomial with constant
+coefficient one. The companion logarithmic coefficients satisfy Dold congruences.
+A bivariate Euler product proves integrality of the triangles A209424,
+A228899, A209196 and A228904 and their row sums.
+An entropy estimate proves Kotesovec's limit formulas in A209428, Formula
+(6 March 2014), and A166895, Formula (20 November 2024).
+Three exponent-lowered variants have nonintegral
+coefficients already in degree six, as asserted in the source Comments.
+\end{abstract}
+
+\section{The conjecture and a general statement}
+
+Hanna's entry A181074 defines
+\begin{equation}\label{eq:main}
+ A(x)=\exp\left(\sum_{n\ge1}\sum_{k\ge0}
+     \binom{n+k-1}{k}^{k+1}\frac{x^{n+k}}{n}\right)
+\end{equation}
+and its Comments state: ``Conjecture: this sequence consists entirely of
+integers'' \cite{h74}. We prove this assertion for every coefficient, together
+with its directly related binomial variants. All series below are formal:
+in degree \(m\), the sums involve only \(1\le n\le m\) and \(k=m-n\).
+No analytic convergence is required.
+
+Moree's integral Witt transform \cite[Theorem 4(2)]{moree}, first released
+in 2003, already gives the unpowered coefficient-array divisibility.
+Gossow \cite[Theorem 3.3, (3.1), and Example 3.4]{gossow} places
+$[t^k]U(t)^n$ and both binomial arrays in the general theory of Gauss
+congruences on ranked semigroups. We extend these coefficient congruences
+to the index-dependent powers below; closure under a fixed product does
+not alone give those varying exponents. Our coefficient-lifting lemma
+and bivariate Euler-product criterion are reproved antecedents, not new
+general criteria. Du, Huang and Li \cite[Theorem 2(2)--(3)]{dhl} give the
+one-variable exponential/Euler-product equivalence in 2005; Byszewski,
+Graff and Ward \cite[Theorem 2.5 and Lemma 2.6]{bgw} give its later Dold-sequence
+formulation. We give the elementary arguments needed for these extensions.
+
+\begin{theorem}\label{thm:general}
+Let \(U(t)\in1+t\mathbb Z[[t]]\), and write
+\(c(n,k)=[t^k]U(t)^n\) for \(n\ge1\), \(k\ge0\).
+Let the nonnegative exponent $E(n,k)$ have one of the forms
+\begin{align*}
+ E(n,k)&=rk+s &&(r,s\ge1),\\
+ E(n,k)&=rn+sk+q &&(r\ge1,\ s,q\ge0),\\
+ E(n,k)&=n+k-1.
+\end{align*}
+All parameters here are integers. Then
+the series
+\begin{equation}\label{eq:general}
+ A_{U,E}(x)=\exp\left(\sum_{n\ge1,k\ge0}
+                      c(n,k)^{E(n,k)}\frac{x^{n+k}}{n}\right)
+\end{equation}
+belongs to \(1+x\mathbb Z[[x]]\).
+\end{theorem}
+
+The exponent zero occurs only for \(E=n+k-1\), \(n=1\), \(k=0\);
+its base is \(c(1,0)=1\). The theorem thus involves no ambiguous power.
+Taking \(U=(1-t)^{-1}\) and \(E=k+1\) gives \eqref{eq:main}.
+
+\section{Two coefficient congruences}
+
+The following unpowered lemma also follows from Moree's Witt-transform
+integrality and Gossow's coefficient-array example \cite{moree,gossow}.
+
+For a prime \(p\) and nonzero integer \(z\), let \(v_p(z)\) be its
+\(p\)-adic valuation, with the same convention for rational numbers.
+
+\begin{lemma}\label{lem:coeff}
+For \(U\in\mathbb Z[[t]]\), \(n\ge1\), \(k\ge0\), and prime \(p\),
+\begin{align}
+ n&\mid k\,c(n,k),\label{eq:div}\\
+ c(pn,pk)&\equiv c(n,k)\pmod {p^{v_p(n)+1}}.\label{eq:lift}
+\end{align}
+\end{lemma}
+\begin{proof}
+The identity \(t(U^n)'=ntU^{n-1}U'\) proves \eqref{eq:div} by taking
+the coefficient of \(t^k\), including \(k=0\).
+Reduction modulo \(p\) gives \(U(t)^p\equiv U(t^p)\pmod p\).
+This identity applies to formal series coefficient by coefficient, since
+each coefficient depends on a finite truncation of \(U\).
+
+If \(V\equiv W\pmod {p^r}\) in \(\mathbb Z[[t]]\), \(r\ge1\), the
+binomial expansion gives \(V^p\equiv W^p\pmod {p^{r+1}}\): the intermediate
+binomial coefficients are divisible by \(p\), and \(rp\ge r+1\) controls
+the last term. This includes \(p=2\).
+Write \(n=p^a b\), where \(a=v_p(n)\). Raise the preceding congruence
+between \(U^p\) and \(U(t^p)\) to the power \(p^a\), then to the power
+\(b\). It follows that
+\[
+ U(t)^{pn}\equiv U(t^p)^n\pmod {p^{a+1}}.
+\]
+Taking the coefficient of \(t^{pk}\) proves \eqref{eq:lift}.
+\end{proof}
+
+\begin{lemma}\label{lem:powered}
+Under the hypotheses of Theorem~\ref{thm:general}, put
+\(F(n,k)=c(n,k)^{E(n,k)}\). Then
+\begin{equation}\label{eq:array}
+ n\mid kF(n,k),\qquad
+ F(pn,pk)\equiv F(n,k)\pmod {p^{v_p(n)+1}}
+\end{equation}
+for every \(n\ge1\), \(k\ge0\), and prime \(p\).
+\end{lemma}
+\begin{proof}
+The first assertion follows from \eqref{eq:div} whenever \(E\ge1\).
+When \(E=0\), we have \(k=0\), so the assertion still holds.
+For the second assertion let \(a=v_p(n)\), \(c=c(n,k)\),
+\(e=E(n,k)\) and \(e'=E(pn,pk)\).
+By \eqref{eq:lift}, it suffices to show
+\(c^{e'}\equiv c^e\pmod {p^{a+1}}\).
+If \(k=0\), then \(c=c(pn,0)=1\), so this is immediate.
+For \(k>0\), both exponents are positive, and \(e'\ge e\).
+The case \(c=0\) is therefore immediate as well.
+
+Suppose first that \(p\nmid c\). From \(n\mid kc\) we obtain
+\(p^a\mid k\). For the three exponent families, the difference \(e'-e\) is respectively
+\[
+ (p-1)rk,\qquad (p-1)(rn+sk),\qquad (p-1)(n+k).
+\]
+In each case it is divisible by \(p^a(p-1)=\varphi(p^{a+1})\).
+Euler's theorem modulo \(p^{a+1}\) proves the desired congruence.
+
+Now suppose that \(p\mid c\), and set \(b=v_p(c)\ge1\).
+Equation~\eqref{eq:div} implies \(a\le v_p(k)+b\).
+For \(e=rk+s\), we have $e\ge k+1$. The inequality \(v_p(k)\le k-1\) gives
+\[
+ eb\ge(k+1)b\ge v_p(k)+b+1\ge a+1.
+\]
+For the other two families, \(k>0\) gives \(e\ge n\), while
+\(n\ge p^a\ge a+1\), so again \(eb\ge a+1\).
+Both powers are thus zero modulo \(p^{a+1}\).
+\end{proof}
+
+\section{From an array to an integral exponential}
+
+\begin{lemma}\label{lem:criterion}
+Let \(F(n,k)\in\mathbb Z\), \(n\ge1\), \(k\ge0\), satisfy
+\eqref{eq:array}. Define
+\begin{equation}\label{eq:ghost}
+ g_m=\sum_{n=1}^m\frac{m}{n}F(n,m-n),\qquad m\ge1.
+\end{equation}
+Then \(g_m\in\mathbb Z\), and for every prime \(p\), \(m\ge1\),
+\begin{equation}\label{eq:dold}
+ g_{pm}\equiv g_m\pmod {p^{v_p(m)+1}}.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:euler}
+ \exp\left(\sum_{m\ge1}g_m\frac{x^m}{m}\right)
+  =\prod_{m\ge1}(1-x^m)^{-h_m}\in1+x\mathbb Z[[x]],
+ \qquad h_m=\frac1m\sum_{d\mid m}\mu(d)g_{m/d}\in\mathbb Z.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Each summand in \eqref{eq:ghost} is integral, since, with \(k=m-n\),
+\[
+ \frac{m}{n}F(n,k)=F(n,k)+\frac{kF(n,k)}{n}.
+\]
+To compare \(g_{pm}\) with \(g_m\), split its summation index \(n\)
+according to divisibility by \(p\), and put \(b=v_p(m)\).
+If \(p\nmid n\), its summand \(pmF(n,pm-n)/n\) is an integer of
+valuation at least \(b+1\), hence vanishes modulo \(p^{b+1}\).
+For \(n=pj\), pair the summand with index \(j\) in \(g_m\).
+Their difference is the integer
+\[
+ \frac{m}{j}\bigl(F(pj,p(m-j))-F(j,m-j)\bigr).
+\]
+By \eqref{eq:array} its valuation is at least
+\(v_p(m)-v_p(j)+v_p(j)+1=b+1\). This proves \eqref{eq:dold}.
+
+For completeness, let \(p^a\Vert m\), and write \(m=p^a r\), \(p\nmid r\).
+The numerator defining \(h_m\) equals
+\[
+ \sum_{d\mid r}\mu(d)
+       \bigl(g_{m/d}-g_{m/(pd)}\bigr).
+\]
+Every difference is divisible by \(p^a\), by \eqref{eq:dold} applied to
+\(m/(pd)\). This holds for every prime power dividing \(m\), so \(h_m\)
+is an integer. M\"obius inversion gives \(g_m=\sum_{d\mid m}dh_d\).
+Taking formal logarithms now proves the identity in \eqref{eq:euler}.
+Each factor has integral coefficients, even when \(h_m<0\), and only
+finitely many factors affect a fixed degree. The product is therefore integral.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:general}]
+Lemma~\ref{lem:powered} supplies \eqref{eq:array}.
+Grouping \eqref{eq:general} by \(m=n+k\) identifies its logarithm with
+\(\sum_{m\ge1}g_m x^m/m\). Lemma~\ref{lem:criterion} finishes the proof.
+\end{proof}
+
+\section{Binomial specializations and source coverage}
+
+Take \(U=(1-t)^{-1}\) or \(U=1+t\). Then respectively
+\[
+ c(n,k)=\binom{n+k-1}{k},\qquad c(n,k)=\binom nk,
+\]
+where the second coefficient is zero for \(k>n\).
+The following reflected-polynomial extension supplies A181080 as well.
+
+\begin{corollary}\label{cor:polynomial}
+Let $P(t)\in1+t\mathbb Z[t]$ have degree at most $d\ge1$, and let
+$r,s\ge1$ be integers. Put $c(n,k)=[t^k]P(t)^n$. Then
+\[
+ \exp\left(\sum_{n\ge1}\sum_{k=0}^{dn}
+ c(n,k)^{r(dn-k)+s}\frac{x^{n+k}}n\right)\in1+x\mathbb Z[[x]].
+\]
+\end{corollary}
+\begin{proof}
+Extend the powered array by zero for $k>dn$. Its divisibility follows
+from $n\mid kc(n,k)$. To establish its coefficient congruence, put
+$a=v_p(n)$, $c=c(n,k)$ and $j=dn-k$. The support is preserved by $(n,k)\mapsto(pn,pk)$,
+and $n\mid jc(n,k)$ because $n\mid kc(n,k)$.
+The coefficient lift in Lemma~\ref{lem:coeff} reduces the assertion to
+$c^{rpj+s}\equiv c^{rj+s}\pmod{p^{a+1}}$.
+If $j=0$, the exponents are equal. If $j>0$ and $p\nmid c$,
+then $p^a\mid j$, so Euler's theorem applies to the exponent difference
+$(p-1)rj$. If $p\mid c\ne0$, write $b=v_p(c)$.
+Then $a\le v_p(j)+b$ and
+$(rj+s)b\ge(j+1)b\ge v_p(j)+b+1\ge a+1$.
+Both powers vanish modulo $p^{a+1}$; $c=0$ is immediate.
+Lemma~\ref{lem:criterion} proves the assertion.
+\end{proof}
+
+\begin{corollary}\label{cor:binomial}
+The eight exponential series in Table~\ref{tab:coverage} have nonnegative
+integer coefficients.
+\end{corollary}
+\begin{proof}
+For A181074 and A181070 take $E=k+1$ in Theorem~\ref{thm:general}.
+For A181076 and A166894 take $E=n$; for A181078 take $E=n+k-1$;
+for A181082 and A181084 take $E=n+k$ and $E=n+k+1$.
+For A181080 use Corollary~\ref{cor:polynomial} with $P=1+t$ and
+$d=r=s=1$. Each logarithm has nonnegative coefficients, so its
+exponential does too.
+\end{proof}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+OEIS entry & Base & Exponent & Coverage of displayed statement\\
+\midrule
+A181074 & $\binom{n+k-1}{k}$ & $k+1$ & Conjecture proved\\
+A181076 & $\binom{n+k-1}{k}$ & $n$ & Conjecture proved\\
+A181078 & $\binom{n+k-1}{k}$ & $n+k-1$ & Conjecture proved\\
+A181070 & $\binom nk$ & $k+1$ & Conjecture proved\\
+A181080 & $\binom nk$ & $n-k+1$ & Conjecture proved\\
+A181082 & $\binom nk$ & $n+k$ & Conjecture proved\\
+A181084 & $\binom nk$ & $n+k+1$ & Conjecture proved\\
+A166894 & $\binom nk$ & $n$ & Integrality stated in Name; proved\\
+\bottomrule
+\end{tabular}
+\caption{The exponentials are defined by summing $F(n,k)x^{n+k}/n$.
+For ordinary binomial bases the range is $0\le k\le n$.
+The first seven entries label integrality a conjecture in their Comments;
+A166894 states it in its Name.}\label{tab:coverage}
+\end{table}
+
+These locators are the Name and Comments fields of Hanna's entries
+\cite{h74,h70,h76,h78,h80,h82,h84,h166}. In all these binomial cases the
+logarithm has nonnegative coefficients, so the integral exponential does too.
+The directly linked A181075 is also covered: \eqref{eq:ghost} gives
+\begin{equation}\label{eq:log}
+ g_m=\sum_{k=0}^{m-1}\binom{m-1}{k}^{k+1}\frac{m}{m-k},
+ \qquad xA'(x)/A(x)=\sum_{m\ge1}g_mx^m.
+\end{equation}
+Thus its defining sum is integral and satisfies \eqref{eq:dold}.
+The other logarithmic identities follow by the same substitution $n=m-k$.
+For completeness their coverage is listed below \cite{logs}.
+\begin{corollary}\label{cor:logs}
+Each of the eight logarithmic sequences below is integral and satisfies
+the Dold congruences \eqref{eq:dold}.
+\end{corollary}
+\begin{proof}
+For each exponential, its powered array satisfies \eqref{eq:array}, as
+proved in Theorem~\ref{thm:general} or Corollary~\ref{cor:polynomial}.
+Apply Lemma~\ref{lem:criterion} and substitute $n=m-k$ in
+\eqref{eq:ghost}; logarithmic differentiation identifies the displayed sum.
+\end{proof}
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Logarithmic entry & Exponential entry & Exponent after $n=m-k$\\
+\midrule
+A181075 & A181074 & $k+1$\\
+A181077 & A181076 & $m-k$\\
+A181079 & A181078 & $m-1$\\
+A181071 & A181070 & $k+1$\\
+A181081 & A181080 & $m-2k+1$\\
+A181083 & A181082 & $m$\\
+A181085 & A181084 & $m+1$\\
+A166895 & A166894 & $m-k$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The range is $0\le k\le m-1$ for the first three rows and
+$0\le k\le\lfloor m/2\rfloor$ for the remaining rows.
+The base is respectively $\binom{m-1}{k}$ or $\binom{m-k}{k}$,
+and each summand has the additional factor $m/(m-k)$.
+The separate limit in A166895 is established in the next section.
+
+Three cross-reference details can be resolved directly from the formulas.
+A181075's cross-reference names A181076 as its exponential, whereas its
+displayed sum is \eqref{eq:log} for A181074. A181076 instead has logarithmic
+coefficients A181077. A181079's Formula field also names A181076,
+but its defining sum is the logarithmic derivative of A181078.
+The displayed Name of A181081 has a stray multiplication
+sign in its exponent; differentiation of A181080 gives the unambiguous exponent
+\(m-2k+1\) above. The A181072 link in A181070 leads to a random-walk entry;
+its displayed statement is not a binomial-exponential problem and is not
+part of this coverage \cite{walk}. Likewise, the A181073 links in A181071
+and A181077 lead to a different entry about digit permutations, not a
+binomial-exponential sequence \cite{digits}.
+
+\section{The companion limit and coverage boundaries}
+
+V. Kotesovec gives the following limit for the unweighted sum in A209428,
+Formula (6 March 2014), and for the weighted sum in A166895, Formula
+(20 November 2024) \cite{limit209,logs}. Both entries state the limit
+without a proof. Its root is identified separately in A323777 \cite{root}.
+\begin{corollary}\label{cor:limit}
+For $g_m=\sum_{k=0}^{\lfloor m/2\rfloor}
+\binom{m-k}{k}^{m-k}m/(m-k)$, one has
+\[
+ \lim_{m\to\infty}g_m^{1/m^2}
+ =\left(\frac{1-r}{r}\right)^{(1-r)^2/(3-4r)},
+\]
+where $r$ is the unique root in $(0,1/2)$ of
+$(1-2r)^{3-4r}=(1-r)^{2(1-r)}r^{1-2r}$.
+The same limit holds for the defining sum
+$b_m=\sum_{k=0}^{\lfloor m/2\rfloor}\binom{m-k}{k}^{m-k}$ of A209428.
+\end{corollary}
+\begin{proof}
+Use $0\log0=0$ and define, for $0\le u\le1/2$,
+\[
+ H(u)=(1-u)\log(1-u)-u\log u-(1-2u)\log(1-2u),
+ \qquad f(u)=(1-u)H(u).
+\]
+The elementary binomial bounds
+\[
+ \frac{e^{Nh(j/N)}}{N+1}\le\binom Nj\le e^{Nh(j/N)},
+ \qquad h(v)=-v\log v-(1-v)\log(1-v),
+\]
+hold for $0\le j\le N$. Indeed, in the binomial probability
+distribution with parameter $j/N$ the $j$th term is a maximum,
+between $1/(N+1)$ and $1$; endpoints follow directly.
+Apply these bounds with $N=m-k$ and $j=k$.
+The logarithm of each summand of $g_m$ is
+$m^2f(k/m)+O(m\log(m+1))$, uniformly in $k$.
+The factor $m/(m-k)$ lies between $1$ and $2$, and there are at most
+$m+1$ terms. Consequently
+$m^{-2}\log g_m\to\max_{0\le u\le1/2}f(u)$,
+by continuity and the density of these grids.
+
+In the interior,
+\[
+ H'(u)=2\log(1-2u)-\log u-\log(1-u),\qquad
+ H''(u)=-\frac{4}{1-2u}-\frac1u+\frac1{1-u}<0.
+\]
+Thus $H'$ decreases from $+\infty$ to $-\infty$.
+Where $H'>0$, $f''=-2H'+(1-u)H''<0$; where $H'\le0$,
+$f'=-H+(1-u)H'<0$, since $H>0$ in the interior.
+As $f'(0+)=+\infty$, $f$ has exactly one maximizer $r$.
+Expanding $f'(r)=0$ gives the stated equation, and substitution gives
+\[
+ f(r)=\frac{(1-r)^2}{3-4r}\log\frac{1-r}{r}.
+\]
+Exponentiating proves the formula for $g_m$. Finally,
+$b_m\le g_m\le2b_m$, so taking $m^{-2}$th powers proves the same limit
+for $b_m$.
+\end{proof}
+
+The coverage above concerns the displayed mathematical assertions, not
+an integrality conjecture for the lowered exponents: the source explicitly
+states their nonintegrality. The following additional coverage rows make
+this distinction precise.
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.40\linewidth}>{\raggedright\arraybackslash}p{.54\linewidth}@{}}
+\toprule
+Source item and locator & Coverage\\
+\midrule
+A181071, A181075, A181077, A181079, A181081, A181083, A181085, A166895, Name
+ & Proved: integral defining sums and Dold congruences, Corollary~\ref{cor:logs}.\\
+A166895, Formula, Kotesovec (20 November 2024)
+ & Proved: the stated limit, Corollary~\ref{cor:limit}; credited to Kotesovec.\\
+A209428, Formula, Kotesovec (6 March 2014)
+ & Proved: the companion limit, Corollary~\ref{cor:limit}.\\
+A323777, Name, defining root
+ & Not posed; uniqueness in $(0,1/2)$ is proved in Corollary~\ref{cor:limit}.\\
+General reflected-polynomial series, Corollary~\ref{cor:polynomial}
+ & Not posed; integrality is proved for $\deg P\le d$, $r,s\ge1$.\\
+A181074, A181070, A181080, Comments, lowered powers
+ & Proved: the asserted nonintegrality. Integrality is not asserted in the
+ source; it fails in degree six as below.\\
+A181075, Crossrefs; A181079, Formula; A181081, Name
+ & Display/cross-reference corrections explained above; no conjecture is refuted.\\
+A181072, Name and Formula; A181073, Name and Comments
+ & Not covered: the random-walk and digit-permutation entries concern
+ different sequences.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Bivariate triangles and their specializations}
+
+Hanna's A209424, Name (8 March 2012), and A228899, Name
+(7 September 2013), define triangles by retaining a second variable in
+the ordinary-binomial exponentials \cite{triangles}. The general
+Gauss-congruence criterion of Gossow \cite[Theorem 3.3]{gossow}
+has the following Euler-product form.
+
+\begin{corollary}\label{cor:bivariate}
+Suppose $F(n,k)\in\mathbb Z$ satisfies \eqref{eq:array} for $n\ge1$, $k\ge0$,
+and for each $n$ has finite support in $k$. Then
+\[
+ B_F(x,y)=\exp\left(\sum_{n\ge1,k\ge0}F(n,k)\frac{x^ny^k}{n}\right)
+ =\prod_{n\ge1,k\ge0}(1-x^ny^k)^{-h_{n,k}}
+ \in1+x\mathbb Z[y][[x]],
+\]
+where $h_{n,k}=n^{-1}\sum_{d\mid\gcd(n,k)}\mu(d)F(n/d,k/d)$.
+In particular the four triangles in Table~\ref{tab:bivariate} are integral.
+\end{corollary}
+\begin{proof}
+Fix $p^a\Vert n$. If $p\nmid k$, every divisor $d$ of $\gcd(n,k)$
+is prime to $p$, and $(n/d)\mid(k/d)F(n/d,k/d)$ makes each term
+divisible by $p^a$. If $p\mid k$, pair squarefree divisors $d,pd$,
+with $p\nmid d$. Their difference is divisible by $p^a$ by the second
+congruence in \eqref{eq:array}. This also applies to $k=0$, with
+$\gcd(n,0)=n$. Hence $h_{n,k}\in\mathbb Z$. M\"obius inversion gives
+$F(n,k)=\sum_{d\mid\gcd(n,k)}(n/d)h_{n/d,k/d}$, so taking formal
+logarithms proves the product. Each $x$-degree involves finitely many
+$y$-degrees by the support assumption, proving the claimed ring membership.
+
+For the first two rows of Table~\ref{tab:bivariate},
+Lemma~\ref{lem:powered} supplies \eqref{eq:array}. For the last two,
+write $(N,K)=(n^2,nk)$ or $(nk,k^2)$. The binomial identity
+$N\mid K\binom NK$ implies $n\mid kF(n,k)$; for the second pair
+cancel $k>0$, with $k=0$ immediate. Under $(n,k)\mapsto(pn,pk)$,
+both $N,K$ are multiplied by $p^2$. Two applications of
+\eqref{eq:lift} to $\binom NK=[t^K](1+t)^N$ give the required
+modulus $p^{v_p(n)+1}$, since $v_p(N)\ge v_p(n)$.
+For the second pair $k=0$ has $F(n,0)=1$ directly.
+\end{proof}
+
+\begin{table}[ht]\centering\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Triangle (Name) & $F(n,k)$, $0\le k\le n$ & Coverage\\
+\midrule
+A209424 & $\binom nk^n$ & Proved: integral triangle\\
+A228899 & $\binom nk^{k+1}$ & Proved: integral triangle\\
+A209196 & $\binom{n^2}{nk}$ & Proved: integral triangle\\
+A228904 & $\binom{nk}{k^2}$ & Proved: integral triangle\\
+\bottomrule
+\end{tabular}
+\caption{Integrality of the displayed triangles, Corollary~\ref{cor:bivariate}.
+Each source presents an integer triangle, not an explicit integrality
+conjecture. The last two entries are dated 5 March 2012 and
+7 September 2013.}\label{tab:bivariate}
+\end{table}
+
+\begin{corollary}\label{cor:rows}
+The row sums A167007 of A209424 and A184730 of A228899, and the
+column A209425 and central terms A209426 of A209424, are integral.
+Their antidiagonal sums are respectively A166894 and A181070.
+Column one of A209424 and the subdiagonal of A228899 both equal
+$\sum_{j=1}^n j^{j-1}$, the defining formula of A060946.
+\end{corollary}
+\begin{proof}
+Apply $y=1$ for row sums and $(x,y)=(z,z)$ for antidiagonal sums to
+Corollary~\ref{cor:bivariate}. A column or central subsequence consists
+of individual integer coefficients. These are the defining identities
+in the source entries \cite{triangles,rows}.
+For column one, extract the coefficient of $y$ from
+$(1-x)^{-1}\exp(\sum_{n\ge1,k\ge1}\binom nk^nx^ny^k/n)$,
+which is $(1-x)^{-1}\sum_{n\ge1}n^{n-1}x^n$.
+For the subdiagonal replace $B(x,y)$ by $B(xy,y^{-1})$;
+the exponent becomes $n-k+1$, giving the same coefficient of $y$.
+Compare A060946, Formula \cite{trace}.
+\end{proof}
+
+\begin{corollary}\label{cor:lowered-triangles}
+The lowered-power variants asserted nonintegral in A228899 and A184730,
+Comments, are nonintegral.
+\end{corollary}
+\begin{proof}
+For A228899's lowered-power variant, its Comments already assert
+nonintegrality. Its $y=1$ specialization is the variant asserted
+nonintegral in A184730, Comments. Exact expansion gives
+$[x^4y^2]B_{\binom nk^k}=31/2$ and
+$[x^4]B_{\binom nk^k}(x,1)=85/2$, proving both assertions.
+Neither is a refuted integrality conjecture.
+The coefficients follow from the exact recurrence
+$n[x^ny^k]B=\sum_{j=1}^n\sum_{i=0}^j\binom ji^i
+[x^{n-j}y^{k-i}]B$, with $[x^0]B=1$.
+\end{proof}
+
+\begin{corollary}\label{cor:arrays}
+The arrays A209427 and A219207 are integral and satisfy
+\eqref{eq:array}. A maximizing column $k_n$ of row $n$ of A219207 satisfies
+$k_n/n\to u$, where $u$ is the unique root in $(1/2,1)$ of
+$(1-u)^{2u-1}=u^{2u}$.
+\end{corollary}
+\begin{proof}
+The logarithmic arrays A209427 and A219207 are, by their Names,
+$\binom nk^n$ and $\binom nk^{k+1}$; their integrality follows
+directly. Their Gauss congruences follow from Lemma~\ref{lem:powered}.
+A219207's additional maximal-position assertion is also elementary:
+the binomial bounds in Corollary~\ref{cor:limit} give the uniform limit
+$n^{-2}\log\binom n{\lfloor un\rfloor}^{\lfloor un\rfloor+1}
+\to u h(u)$ on $[0,1]$. Its derivative is positive on $(0,1/2]$;
+on $(1/2,1)$ its second derivative
+$2\log((1-u)/u)-1/(1-u)$ is negative, and its first derivative tends
+to $-\infty$. Thus the maximizer is unique and satisfies
+$(1-u)^{2u-1}=u^{2u}$, so maximizing indices divided by $n$
+converge to that root, as asserted by Kotesovec in A219207, Comments
+(15 November 2012) \cite{arrays}.
+\end{proof}
+
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.40\linewidth}>{\raggedright\arraybackslash}p{.54\linewidth}@{}}
+\toprule
+Source item and locator & Coverage\\
+\midrule
+Moree (2003), Theorem 4(2); Gossow (2024), Example 3.4
+ & Reproved; prior proofs Moree (2003), Gossow (2024): unpowered congruences.\\
+Du--Huang--Li (2005), Theorem 2; Gossow (2024), Theorem 3.3
+ & Reproved; prior proofs cited: exponential/Euler-product criteria.\\
+A209424, A228899, A209196, A228904, Name
+ & Proved: stated integer triangles, Corollary~\ref{cor:bivariate}.\\
+A167007, A184730, Name; A209425, A209426, Name
+ & Proved: integral specializations, Corollary~\ref{cor:rows}.\\
+A228899 and A184730, Comments, lowered powers
+ & Proved: stated nonintegrality by exact rational coefficients.\\
+A209427, A219207, Name; A219207, Comments (15 November 2012)
+ & Proved: integral arrays, their congruences, and the stated maximizing-position limit.\\
+A060946, Formula, $\sum_{j=1}^n j^{j-1}$
+ & Prior formula cited \cite{trace}; its integrality is immediate.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{The lowered exponents and exact checks}
+
+The Comments of A181074, A181070 and A181080 also state that replacing
+\(k+1\) by \(k\), or \(n-k+1\) by \(n-k\), does not give an integer
+series. This is confirmed by exact counterexamples in degree six:
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Base and exponent & Coefficients in degrees $0,\ldots,5$ & $[x^6]$\\
+\midrule
+$\binom{n+k-1}{k}^{k}$ & $1,1,2,4,11,59$ & $1481/2$\\
+$\binom nk^{k}$ & $1,1,2,3,5,10$ & $45/2$\\
+$\binom nk^{n-k}$ & $1,1,2,3,7,25$ & $327/2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Here the finite range for the ordinary binomial sums remains \(0\le k\le n\).
+For a direct rational calculation, their respective ghost coefficients
+\((g_1,\ldots,g_6)\) are
+\[
+ (1,3,7,27,231,4038),\quad
+ (1,3,4,7,21,63),\quad
+ (1,3,4,15,86,807).
+\]
+Starting with \(a_0=1\), the identity
+\begin{equation}\label{eq:recurrence}
+ ma_m=\sum_{i=1}^m g_i a_{m-i}
+\end{equation}
+then gives each displayed fraction. This provides explicit counterexamples
+to integrality of the lowered variants, in agreement with the source Comments.
+
+For A181074, \((g_1,\ldots,g_6)=(1,3,10,71,1026,30912)\), and the first
+Euler exponents in \eqref{eq:euler} are \(1,1,3,17,205,5150\).
+Its coefficients begin
+\[
+ 1,1,2,5,23,231,5405,322799,42761356,12597156231,9136063939651.
+\]
+The accompanying Python program uses exact rational arithmetic in
+\eqref{eq:recurrence} and independently expands \eqref{eq:euler}.
+It matches all 76 values in Greubel's A181074 table \cite{table74}, checks
+integrality and both expansions through degree 75 for A181074 and degree 40
+for the seven other exponentials in Table~\ref{tab:coverage}, and compares the
+available displayed logarithmic coefficients. It also checks 5,544 coefficient
+lifts and 29,664 powered congruences for \(1\le n\le24\), \(0\le k\le24\),
+with primes \(2,3,5,7,11,13\). For ordinary binomials these local checks use
+\(k\le n\). These are finite checks; the all-index conclusions follow from
+the written proofs above. The reflected-polynomial extension is also checked
+by both expansions through degree 24 for three integer polynomials,
+including negative coefficients and a degree bound larger than the actual
+degree. These finite checks do not establish the asymptotic limit, whose
+proof is Corollary~\ref{cor:limit}.
+For the four bivariate triangles, an exact polynomial recurrence and a
+separate monomial Euler-product expansion agree through row 12, including
+the displayed OEIS prefixes, row sums, column and central subsequences.
+The two additional lowered-power fractions are checked in the same program.
+
+\paragraph{Lean declarations and mathematical scope.}
+At revision \texttt{abb48f7} (the full revision is fixed in each link), the declaration
+\texttt{result} in
+\href{https://github.com/the-omega-institute/trureturing/blob/abb48f723fe221da235c625800ba0d2ca1755296/D5/S1/Recurrence/Algebraic/HannaA181074Integrality.lean}{the A181074 Lean source}
+has type \texttt{claim}, defined as
+\(\forall m\in\mathbb N,\ \exists z\in\mathbb Z,\ [x^m]A=z\).
+The declarations \texttt{result} in
+\href{https://github.com/the-omega-institute/trureturing/blob/abb48f723fe221da235c625800ba0d2ca1755296/D5/S1/Recurrence/Algebraic/HannaA181070Integrality.lean}{the A181070 Lean source}
+and
+\href{https://github.com/the-omega-institute/trureturing/blob/abb48f723fe221da235c625800ba0d2ca1755296/D5/S1/Recurrence/Algebraic/HannaA181080Integrality.lean}{the A181080 Lean source}
+have the corresponding coefficient-integrality statements for A181070 and
+A181080. The general theorem for \(U\), the reflected-polynomial extension,
+the other specializations, the logarithmic identities and the two companion limits
+are supplied here as written proofs. None of those additional statements
+is the conclusion of these three \texttt{result} declarations.
+The bivariate Euler product, its triangle and subsequence corollaries,
+and the A219207 maximizing-position limit likewise have written proofs.
+The program's coverage is the finite range just stated.
+
+\begin{thebibliography}{99}
+\bibitem{moree} P. Moree, \emph{The formal series Witt transform},
+arXiv:math/0311194, first released 12 November 2003; v2, 31 March 2005,
+Theorem 4(2). \url{https://arxiv.org/abs/math/0311194v2}.
+\bibitem{gossow} F. Gossow,
+\emph{Polynomial and combinatorial analogues of Gauss congruence},
+arXiv:2410.05678v2, 22 December 2024,
+Theorem 3.3, (3.1), and Example 3.4.
+\url{https://arxiv.org/abs/2410.05678v2}.
+\bibitem{dhl} B.-S. Du, S.-S. Huang and M.-C. Li,
+\emph{Newton, Fermat, and Exactly Realizable Sequences},
+Journal of Integer Sequences \textbf{8} (2005), Article 05.1.2,
+Theorem 2(2)--(3).
+\url{https://cs.uwaterloo.ca/journals/JIS/VOL8/Huang/huang11.pdf}.
+\bibitem{h74} P. D. Hanna, OEIS A181074, Name and Comments, 2 October 2010,
+entry revision 9 (3 August 2024). \url{https://oeis.org/A181074}.
+\bibitem{bgw} J. Byszewski, G. Graff and T. Ward,
+\emph{Dold sequences, periodic points, and dynamics},
+Bulletin of the London Mathematical Society \textbf{53} (2021), 1263--1298.
+\href{https://doi.org/10.1112/blms.12531}{doi:10.1112/blms.12531}.
+Accessible text: \href{https://arxiv.org/abs/2007.04031v4}{arXiv:2007.04031v4},
+Theorem 2.5 and Lemma 2.6.
+\bibitem{h70} P. D. Hanna, OEIS A181070, Name and Comments, 2 October 2010.
+\url{https://oeis.org/A181070}.
+\bibitem{h76} P. D. Hanna, OEIS A181076, Name and Comments, 2 October 2010.
+\url{https://oeis.org/A181076}.
+\bibitem{h78} P. D. Hanna, OEIS A181078, Name and Comments, 3 October 2010.
+\url{https://oeis.org/A181078}.
+\bibitem{h80} P. D. Hanna, OEIS A181080, Name and Comments, 2 October 2010.
+\url{https://oeis.org/A181080}.
+\bibitem{h82} P. D. Hanna, OEIS A181082, Name and Comments, 2 October 2010.
+\url{https://oeis.org/A181082}.
+\bibitem{h84} P. D. Hanna, OEIS A181084, Name and Comments, 28 October 2010.
+\url{https://oeis.org/A181084}.
+\bibitem{h166} P. D. Hanna, OEIS A166894, Name, 23 November 2009.
+\url{https://oeis.org/A166894}.
+\bibitem{logs} P. D. Hanna, OEIS A181071, A181075, A181077, A181081 and A181083
+(2 October 2010), A181079 (3 October 2010), A181085 (28 October 2010)
+and A166895 (23 November 2009), Name fields.
+\url{https://oeis.org/A181071}; \url{https://oeis.org/A181075};
+\url{https://oeis.org/A181077}; \url{https://oeis.org/A181079};
+\url{https://oeis.org/A181081}; \url{https://oeis.org/A181083};
+\url{https://oeis.org/A181085}; \url{https://oeis.org/A166895}.
+\bibitem{walk} S. Perepechko, OEIS A181072, Name, 23 January 2011.
+\url{https://oeis.org/A181072}.
+\bibitem{digits} M. Rip\`a, OEIS A181073, Name and Comments, 23 January 2011.
+\url{https://oeis.org/A181073}.
+\bibitem{limit209} P. D. Hanna, OEIS A209428, Name (8 March 2012);
+V. Kotesovec, limit in Formula (6 March 2014).
+\url{https://oeis.org/A209428}.
+\bibitem{root} V. Kotesovec, OEIS A323777, Name, 27 January 2019.
+\url{https://oeis.org/A323777}.
+\bibitem{table74} G. C. Greubel, Table of \(n,a(n)\), \(n=0,\ldots,75\),
+linked from OEIS A181074. \url{https://oeis.org/A181074/b181074.txt}.
+\bibitem{triangles} P. D. Hanna, OEIS A209424, Name and Comments
+(8 March 2012); A228899, Name and Comments (7 September 2013);
+A209196, Name (5 March 2012); A228904, Name (7 September 2013).
+\url{https://oeis.org/A209424}; \url{https://oeis.org/A228899};
+\url{https://oeis.org/A209196}; \url{https://oeis.org/A228904}.
+\bibitem{rows} P. D. Hanna, OEIS A167007, Name (17 November 2009);
+A184730, Name and Comments (20 January 2011);
+A209425 and A209426, Name (8 March 2012).
+\url{https://oeis.org/A167007}; \url{https://oeis.org/A184730};
+\url{https://oeis.org/A209425}; \url{https://oeis.org/A209426}.
+\bibitem{arrays} P. D. Hanna, OEIS A209427, Name (8 March 2012),
+and A219207, Name (14 November 2012); V. Kotesovec, A219207,
+Comments (15 November 2012). \url{https://oeis.org/A209427};
+\url{https://oeis.org/A219207}.
+\bibitem{trace} A. Fares, OEIS A060946, Name and Formula (8 May 2001).
+\url{https://oeis.org/A060946}.
+\end{thebibliography}
+\end{document}

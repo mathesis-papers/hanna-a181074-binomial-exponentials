@@ -1,0 +1,444 @@
+{
+  "status": "pass",
+  "arithmetic": "exact integers and rational numbers",
+  "coverage": "finite coefficient, Euler-product and congruence checks",
+  "A181074_initial_coefficients": [
+    1,
+    1,
+    2,
+    5,
+    23,
+    231,
+    5405,
+    322799,
+    42761356,
+    12597156231,
+    9136063939651
+  ],
+  "sequences": [
+    {
+      "sequence": "A181074",
+      "degree": 75,
+      "coefficient_match_count": 76,
+      "logarithmic_match_count": 15,
+      "integer_euler_exponents": 75,
+      "dold_congruences": 123
+    },
+    {
+      "sequence": "A181070",
+      "degree": 40,
+      "coefficient_match_count": 21,
+      "logarithmic_match_count": 19,
+      "integer_euler_exponents": 40,
+      "dold_congruences": 60
+    },
+    {
+      "sequence": "A181076",
+      "degree": 40,
+      "coefficient_match_count": 16,
+      "logarithmic_match_count": 15,
+      "integer_euler_exponents": 40,
+      "dold_congruences": 60
+    },
+    {
+      "sequence": "A181078",
+      "degree": 40,
+      "coefficient_match_count": 14,
+      "logarithmic_match_count": 15,
+      "integer_euler_exponents": 40,
+      "dold_congruences": 60
+    },
+    {
+      "sequence": "A181080",
+      "degree": 40,
+      "coefficient_match_count": 17,
+      "logarithmic_match_count": 16,
+      "integer_euler_exponents": 40,
+      "dold_congruences": 60
+    },
+    {
+      "sequence": "A181082",
+      "degree": 40,
+      "coefficient_match_count": 15,
+      "logarithmic_match_count": 14,
+      "integer_euler_exponents": 40,
+      "dold_congruences": 60
+    },
+    {
+      "sequence": "A166894",
+      "degree": 40,
+      "coefficient_match_count": 17,
+      "logarithmic_match_count": 15,
+      "integer_euler_exponents": 40,
+      "dold_congruences": 60
+    },
+    {
+      "sequence": "A181084",
+      "degree": 40,
+      "coefficient_match_count": 15,
+      "logarithmic_match_count": 14,
+      "integer_euler_exponents": 40,
+      "dold_congruences": 60
+    }
+  ],
+  "local_congruences": {
+    "row_range": [
+      1,
+      24
+    ],
+    "column_range": [
+      0,
+      24
+    ],
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13
+    ],
+    "base_divisibility_checks": 924,
+    "coefficient_lifts": 5544,
+    "powered_congruences": 29664
+  },
+  "general_series_examples": [
+    {
+      "U_coefficients": [
+        1,
+        1,
+        1
+      ],
+      "exponent": "k+1",
+      "degree": 30,
+      "dold_checks": 43
+    },
+    {
+      "U_coefficients": [
+        1,
+        1,
+        1
+      ],
+      "exponent": "n",
+      "degree": 30,
+      "dold_checks": 43
+    },
+    {
+      "U_coefficients": [
+        1,
+        1,
+        1
+      ],
+      "exponent": "n+k-1",
+      "degree": 30,
+      "dold_checks": 43
+    },
+    {
+      "U_coefficients": [
+        1,
+        1,
+        1
+      ],
+      "exponent": "n+k",
+      "degree": 30,
+      "dold_checks": 43
+    },
+    {
+      "U_coefficients": [
+        1,
+        1,
+        1
+      ],
+      "exponent": "n+k+1",
+      "degree": 30,
+      "dold_checks": 43
+    },
+    {
+      "U_coefficients": [
+        1,
+        -2,
+        0,
+        1
+      ],
+      "exponent": "k+1",
+      "degree": 30,
+      "dold_checks": 43
+    },
+    {
+      "U_coefficients": [
+        1,
+        -2,
+        0,
+        1
+      ],
+      "exponent": "n",
+      "degree": 30,
+      "dold_checks": 43
+    },
+    {
+      "U_coefficients": [
+        1,
+        -2,
+        0,
+        1
+      ],
+      "exponent": "n+k-1",
+      "degree": 30,
+      "dold_checks": 43
+    },
+    {
+      "U_coefficients": [
+        1,
+        -2,
+        0,
+        1
+      ],
+      "exponent": "n+k",
+      "degree": 30,
+      "dold_checks": 43
+    },
+    {
+      "U_coefficients": [
+        1,
+        -2,
+        0,
+        1
+      ],
+      "exponent": "n+k+1",
+      "degree": 30,
+      "dold_checks": 43
+    }
+  ],
+  "reflected_polynomial_examples": [
+    {
+      "P_coefficients": [
+        1,
+        1,
+        1
+      ],
+      "degree_bound": 2,
+      "slope": 1,
+      "constant": 1,
+      "degree": 24,
+      "integer_euler_exponents": 24,
+      "dold_checks": 33
+    },
+    {
+      "P_coefficients": [
+        1,
+        1,
+        1
+      ],
+      "degree_bound": 2,
+      "slope": 2,
+      "constant": 1,
+      "degree": 24,
+      "integer_euler_exponents": 24,
+      "dold_checks": 33
+    },
+    {
+      "P_coefficients": [
+        1,
+        1,
+        1
+      ],
+      "degree_bound": 2,
+      "slope": 1,
+      "constant": 2,
+      "degree": 24,
+      "integer_euler_exponents": 24,
+      "dold_checks": 33
+    },
+    {
+      "P_coefficients": [
+        1,
+        -2,
+        0,
+        1
+      ],
+      "degree_bound": 3,
+      "slope": 1,
+      "constant": 1,
+      "degree": 24,
+      "integer_euler_exponents": 24,
+      "dold_checks": 33
+    },
+    {
+      "P_coefficients": [
+        1,
+        -2,
+        0,
+        1
+      ],
+      "degree_bound": 3,
+      "slope": 2,
+      "constant": 1,
+      "degree": 24,
+      "integer_euler_exponents": 24,
+      "dold_checks": 33
+    },
+    {
+      "P_coefficients": [
+        1,
+        -2,
+        0,
+        1
+      ],
+      "degree_bound": 3,
+      "slope": 1,
+      "constant": 2,
+      "degree": 24,
+      "integer_euler_exponents": 24,
+      "dold_checks": 33
+    },
+    {
+      "P_coefficients": [
+        1,
+        2
+      ],
+      "degree_bound": 3,
+      "slope": 1,
+      "constant": 1,
+      "degree": 24,
+      "integer_euler_exponents": 24,
+      "dold_checks": 33
+    },
+    {
+      "P_coefficients": [
+        1,
+        2
+      ],
+      "degree_bound": 3,
+      "slope": 2,
+      "constant": 1,
+      "degree": 24,
+      "integer_euler_exponents": 24,
+      "dold_checks": 33
+    },
+    {
+      "P_coefficients": [
+        1,
+        2
+      ],
+      "degree_bound": 3,
+      "slope": 1,
+      "constant": 2,
+      "degree": 24,
+      "integer_euler_exponents": 24,
+      "dold_checks": 33
+    }
+  ],
+  "entropy_bounds": {
+    "binomial_size_range": [
+      1,
+      30
+    ],
+    "exact_probability_bounds": 495,
+    "coverage": "finite checks of the binomial inequalities used in the written limit proof"
+  },
+  "counterexamples": [
+    {
+      "base": "weak",
+      "exponent": "k",
+      "first_noninteger_degree": 6,
+      "coefficient": "1481/2",
+      "prefix": [
+        "1",
+        "1",
+        "2",
+        "4",
+        "11",
+        "59",
+        "1481/2"
+      ]
+    },
+    {
+      "base": "ordinary",
+      "exponent": "k",
+      "first_noninteger_degree": 6,
+      "coefficient": "45/2",
+      "prefix": [
+        "1",
+        "1",
+        "2",
+        "3",
+        "5",
+        "10",
+        "45/2"
+      ]
+    },
+    {
+      "base": "ordinary",
+      "exponent": "n-k",
+      "first_noninteger_degree": 6,
+      "coefficient": "327/2",
+      "prefix": [
+        "1",
+        "1",
+        "2",
+        "3",
+        "7",
+        "25",
+        "327/2"
+      ]
+    }
+  ],
+  "bivariate": {
+    "arithmetic": "independent exact rational recurrence and integer monomial Euler product",
+    "triangles": [
+      {
+        "sequence": "A209424",
+        "row_range": [
+          0,
+          12
+        ],
+        "integer_euler_exponents": 90,
+        "published_prefix_matches": 41
+      },
+      {
+        "sequence": "A228899",
+        "row_range": [
+          0,
+          12
+        ],
+        "integer_euler_exponents": 90,
+        "published_prefix_matches": 55
+      },
+      {
+        "sequence": "A209196",
+        "row_range": [
+          0,
+          12
+        ],
+        "integer_euler_exponents": 90,
+        "published_prefix_matches": 39
+      },
+      {
+        "sequence": "A228904",
+        "row_range": [
+          0,
+          12
+        ],
+        "integer_euler_exponents": 90,
+        "published_prefix_matches": 55
+      }
+    ],
+    "specialization_prefix_matches": {
+      "A167007": 13,
+      "A184730": 13,
+      "A209425": 11,
+      "A209426": 7
+    },
+    "array_divisibility_checks": 360,
+    "array_prime_power_congruences": 1440,
+    "array_primes": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "antidiagonal_matches_each": 13,
+    "lowered_power_coefficient_x4y2": "31/2",
+    "lowered_power_row_sum_x4": "85/2"
+  }
+}
